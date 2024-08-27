@@ -21,9 +21,9 @@ public class TestConfig {
 
         userRepository.deleteAll();
 
-        User maria = new User(null, "Maria Brown", "maria@gmail.com");
-        User alex = new User(null, "Alex Green", "alex@gmail.com");
+        User sandra = new User(null, "Sandra Silva", "sandra@gmail.com");
+        User robert = new User(null, "Robert Brown", "robert@gmail.com");
 
-        userRepository.saveAll(Arrays.asList(maria, alex));
+        userRepository.saveAll(Arrays.asList(sandra, robert));
     }
 }
