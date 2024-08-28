@@ -1,9 +1,12 @@
 package org.meuprojeto.ecommerce_mongodb.models.dto;
 
 import org.meuprojeto.ecommerce_mongodb.models.embedded.Author;
+import org.meuprojeto.ecommerce_mongodb.models.embedded.Product;
 import org.meuprojeto.ecommerce_mongodb.models.entities.Order;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderDTO {
 
@@ -11,6 +14,8 @@ public class OrderDTO {
     private Instant moment;
 
     private Author client;
+
+    private List<Product> products = new ArrayList<>();
 
     public OrderDTO() {
     }
@@ -25,6 +30,7 @@ public class OrderDTO {
         id = order.getId();
         moment = order.getMoment();
         client = order.getClient();
+        products.addAll(order.getProducts());
     }
 
     public String getId() {
@@ -49,5 +55,9 @@ public class OrderDTO {
 
     public void setClient(Author client) {
         this.client = client;
+    }
+
+    public List<Product> getProducts() {
+        return products;
     }
 }

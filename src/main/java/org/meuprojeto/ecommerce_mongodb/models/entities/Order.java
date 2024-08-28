@@ -1,10 +1,13 @@
 package org.meuprojeto.ecommerce_mongodb.models.entities;
 
 import org.meuprojeto.ecommerce_mongodb.models.embedded.Author;
+import org.meuprojeto.ecommerce_mongodb.models.embedded.Product;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @Document(collection = "orders")
 public class Order {
@@ -14,6 +17,8 @@ public class Order {
     private Instant moment;
 
     private Author client;
+
+    private List<Product> products = new ArrayList<>();
 
     public Order() {
     }
@@ -46,5 +51,9 @@ public class Order {
 
     public void setClient(Author client) {
         this.client = client;
+    }
+
+    public List<Product> getProducts() {
+        return products;
     }
 }
