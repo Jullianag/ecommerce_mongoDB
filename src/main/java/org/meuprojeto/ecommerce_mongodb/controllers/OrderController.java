@@ -1,13 +1,13 @@
 package org.meuprojeto.ecommerce_mongodb.controllers;
 
 import org.meuprojeto.ecommerce_mongodb.models.dto.OrderDTO;
+import org.meuprojeto.ecommerce_mongodb.models.dto.ProductDTO;
 import org.meuprojeto.ecommerce_mongodb.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/orders")
@@ -21,4 +21,12 @@ public class OrderController {
         OrderDTO dto = orderService.findById(id);
         return ResponseEntity.ok().body(dto);
     }
+
+    @GetMapping(value = "/findproducts")
+    public ResponseEntity<List<OrderDTO>> findProducts(@RequestParam(value = "text", defaultValue = "")
+                                                       String text) {
+        List<OrderDTO> list = orderService.searchProducts(text);
+        return ResponseEntity.ok(list);
+    }
+
 }

@@ -7,15 +7,15 @@ public class Product {
     private String name;
     private Double price;
 
-    private Author client;
+
 
     public Product() {
     }
 
-    public Product(String name, Double price, Author client) {
+    public Product(String name, Double price) {
         this.name = name;
         this.price = price;
-        this.client = client;
+
     }
 
     public String getName() {
@@ -34,11 +34,4 @@ public class Product {
         this.price = price;
     }
 
-    public Author getClient() {
-        return client;
-    }
-
-    public void setClient(Author client) {
-        this.client = client;
-    }
 }

@@ -36,19 +36,20 @@ public class TestConfig {
         userRepository.saveAll(Arrays.asList(sandra, robert));
 
         Order order1 = new Order(null, Instant.parse("2024-02-13T11:15:01Z"), new Author(sandra));
-        Order order2 = new Order(null, Instant.parse("2024-03-23T09:40:08Z"), new Author(sandra));
+        Order order2 = new Order(null, Instant.parse("2024-03-23T09:40:08Z"), new Author(robert));
 
-        Product product1 = new Product("Computador", 4000.0, new Author(sandra));
-        Product product2 = new Product("Celular", 2000.0, new Author(sandra));
-        Product product3 = new Product("Celular", 2000.0, new Author(sandra));
+        Product product1 = new Product("Computador", 4000.0);
+        Product product2 = new Product("Celular", 2000.0);
+        Product product3 = new Product("Playstation 5", 5000.0);
 
-        order1.getProducts().addAll(Arrays.asList(product1, product3));
-        order2.getProducts().add(product2);
+        order1.getProducts().addAll(Arrays.asList(product1, product2, product3));
+        order2.getProducts().add(product3);
 
         orderRepository.saveAll(Arrays.asList(order1, order2));
 
-        sandra.getOrders().addAll(Arrays.asList(order1, order2));
-        userRepository.save(sandra);
+        sandra.getOrders().add(order1);
+        robert.getOrders().add(order2);
+        userRepository.saveAll(Arrays.asList(sandra, robert));
 
     }
 }
