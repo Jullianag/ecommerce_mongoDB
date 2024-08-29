@@ -1,7 +1,5 @@
 package org.meuprojeto.ecommerce_mongodb.repositories;
 
-import org.meuprojeto.ecommerce_mongodb.models.dto.ProductDTO;
-import org.meuprojeto.ecommerce_mongodb.models.embedded.Product;
 import org.meuprojeto.ecommerce_mongodb.models.entities.Order;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
